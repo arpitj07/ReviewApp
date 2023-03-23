@@ -10,13 +10,15 @@ const Reviews = () => {
 			setReviewList(data);
 		}
 
-		let sum = 0;
-		let totalrating = data.reduce((acc, current) => {
-			sum = acc + current.rating;
-			return sum;
-		}, 0);
-		// console.log(totalrating);
-		setAverageReview(totalrating / data.length);
+		if (data.length > 0) {
+			let sum = 0;
+			let totalrating = data.reduce((acc, current) => {
+				sum = acc + current.rating;
+				return sum;
+			}, 0);
+			// console.log(totalrating);
+			setAverageReview(totalrating / data.length);
+		}
 	}, []);
 
 	const handleEdit = () => {};
@@ -46,7 +48,7 @@ const Reviews = () => {
 			</div>
 			<div className="reviewContainer">
 				<div className="all_the_reviews">
-					{ReviewList.length > 0 &&
+					{ReviewList.length > 0 ? (
 						ReviewList.map((review, index) => {
 							return (
 								<div className="reviewCardWrapper">
@@ -68,7 +70,10 @@ const Reviews = () => {
 									</div>
 								</div>
 							);
-						})}
+						})
+					) : (
+						<h3>No reviews added</h3>
+					)}
 				</div>
 			</div>
 		</div>
