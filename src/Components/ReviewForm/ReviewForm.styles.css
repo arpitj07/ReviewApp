@@ -17,6 +17,13 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.ReviewFormContainer .links p{
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
 .userInput h3{
     color: #003566;
     font-size: 18px;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import './ReviewForm.styles.css';
 import { Alert, CircularProgress } from '@mui/material';
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,7 @@ const ReviewForm = () => {
 	const [ rating, setRating ] = useState(0);
 	const [ hover, setHover ] = useState(0);
 	const dispatch = useDispatch();
-
+	const navigate = useNavigate();
 	const [ alertStatus, setAlertStatus ] = useState(0);
 	const [ message, setMessage ] = useState('');
 	const [ loading, setLoading ] = useState(false);
@@ -128,9 +128,7 @@ const ReviewForm = () => {
 					<button onClick={(e) => handleSubmit(e)}>Submit</button>
 				</div>
 				<div className="links">
-					<p>
-						<a href="/allreviews">View All Reviews</a>
-					</p>
+					<p onClick={() => navigate('/allreviews')}>View All Reviews</p>
 				</div>
 			</div>
 		</div>
